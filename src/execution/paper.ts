@@ -23,10 +23,6 @@ export class PaperExecutor {
     const pnlUSD = this.open.qtyUSD * (nowPx / this.open.entryPx - 1) - fee;
     this.open = null;
     log.info({ nowPx, pnlUSD }, "EXIT (paper)");
-
-    if (!this.history) this.history = [];
-    this.history.push({ pnlUSD });
-
     return { pnlUSD };
   }
 }
